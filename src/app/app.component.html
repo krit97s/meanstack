@@ -1,0 +1,23 @@
+<h1>Welcome to Angular !!</h1>
+<form #sendDataFrms="ngForm" (submit) = "onSend(sendDataFrms.value)">
+  <label>FistName</label>
+  <input type="text" ngModel name="fname"><br>
+  <label>LastName</label>
+  <input type="text" ngModel name="lname"><br>
+  <input type="submit" value="่send">
+</form>
+<h1> Show Data </h1>
+<ol>
+  <li *ngFor="let item of data">
+  ชื่อ: {{item.fname}} นามสกุล: {{item.lname}}
+  <button type="button" (click)="onDelete(item._id)">Delete </button>
+  <form #frmUpdate="ngForm" (submit)="onUpdate(frmUpdate.value)">
+      <input type="text" ngModel name="fname" placeholder="{{item.fname}}">
+      <input type="text" ngModel name="lname" placeholder="{{item.lname}}">
+      <input type="submit" value="update">
+  </form><br>
+  </li>
+</ol>
+
+  
+<router-outlet></router-outlet>
